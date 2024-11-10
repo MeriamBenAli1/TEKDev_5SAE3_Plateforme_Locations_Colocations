@@ -1,4 +1,4 @@
-package com.esprit.ms.reservation;
+package com.esprit.ms.annonce;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class ReservationApplication {
+public class AnnonceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ReservationApplication.class, args);
+        SpringApplication.run(AnnonceApplication.class, args);
     }
 
 }
