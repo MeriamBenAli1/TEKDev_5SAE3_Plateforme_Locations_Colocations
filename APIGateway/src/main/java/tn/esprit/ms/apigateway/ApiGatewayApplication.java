@@ -18,8 +18,13 @@ public class ApiGatewayApplication {
     @Bean
     public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("GestionUser",r->r.path("/Users/**").uri("http://localhost:9912") )
+                .route("GestionUser", r -> r.path("/Users/**").uri("http://localhost:9912"))
+                .route("GestionUser", r -> r.path("/Users/**").uri("http://localhost:8078"))
+                .route("MicroserviceMesssagerie", r -> r.path("/api/messages/**").uri("http://localhost:8085"))
+                .route("Reservation", r -> r.path("/reservations/**").uri("http://localhost:8556"))
+                .route("Annonce", r -> r.path("/annonces/**").uri("http://localhost:8081"))
+                .route("MSBlog", r -> r.path("/blog/**").uri("http://localhost:8087"))
+                .route("LogsNode", r -> r.path("/logs/**").uri("http://localhost:3000"))
                 .build();
-
     }
 }
