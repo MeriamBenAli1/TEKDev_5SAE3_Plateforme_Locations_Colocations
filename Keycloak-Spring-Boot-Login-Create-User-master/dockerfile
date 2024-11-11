@@ -1,0 +1,7 @@
+FROM openjdk:17-jdk-alpine
+
+ADD target/keycloak-springboot-microservice-0.0.1-SNAPSHOT.jar keycloak-springboot-microservice.jar
+EXPOSE 8078
+ENTRYPOINT ["java", "-jar", "keycloak-springboot-microservice.jar"]
+
+
