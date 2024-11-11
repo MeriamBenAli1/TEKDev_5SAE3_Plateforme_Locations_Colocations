@@ -1,22 +1,31 @@
 package com.example.msblog;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/blog")
 public class BlogController {
 
 
 @Autowired
 private BlogService blogService;
 
+    @Autowired
+    private UserClient userClient;
+    @RequestMapping("/all")
+    public List<User> getAllUsers() {
+        return userClient.getAllUsers();
+    }
 
-
-    @GetMapping("/")
+    @RequestMapping("/one/{id}")
+    public User getUserById(@PathVariable Integer id) {
+        return userClient.getUserById(id);
+    }
+    @GetMapping("/hello")
     public String home() {
         return "Hello, Blog!";
     }

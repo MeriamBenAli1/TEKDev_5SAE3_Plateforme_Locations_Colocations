@@ -1,9 +1,6 @@
 package com.example.msblog;
 
 
-import com.example.msblog.Blog;
-import com.example.msblog.BlogRepository;
-import com.example.msblog.BlogService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +13,8 @@ public class BlogServiceImpl implements BlogService {
 
     @Autowired
     private BlogRepository blogRepository;
+    @Autowired
+    private UserClient jobServiceClient;
 
     public Blog createBlog(Blog blog) {
         return blogRepository.save(blog);
@@ -37,6 +36,15 @@ public class BlogServiceImpl implements BlogService {
 
     public void deleteBlog(Integer id) {
         blogRepository.deleteById(id);
+    }
+
+
+    public List<User> getAllUsers() {
+        return jobServiceClient.getAllUsers();
+    }
+
+    public User getUserById(Integer id) {
+        return jobServiceClient.getUserById(id);
     }
 }
 
